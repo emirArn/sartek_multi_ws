@@ -47,6 +47,8 @@ setup(
         ],
     },
     entry_points={
-        'console_scripts': [],
+        'console_scripts': [
+            'virtual_uav_runner = sartek_sim.virtual_uav_runner:main',
+        ],
     },
 )

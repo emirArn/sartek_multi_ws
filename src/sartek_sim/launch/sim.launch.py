@@ -148,7 +148,7 @@ def _launch_setup(context, *args, **kwargs):
         SetEnvironmentVariable(name="GZ_SIM_SERVER_CONFIG_PATH", value=px4_server_config),
         SetEnvironmentVariable(name="GZ_IP", value="127.0.0.1"),
         gazebo_proc,
-        TimerAction(period=2.0, actions=[spawn_node]),
+        TimerAction(period=5.0, actions=[spawn_node]),
         start_after_spawn,
     ]
 

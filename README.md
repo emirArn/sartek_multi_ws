@@ -15,7 +15,8 @@ Teknofest Savaşan İHA yarışması için **ROS 2 Humble**, **PX4 Micro XRCE-DD
 | Doküman | Ne Zaman Kullanılır? |
 |---|---|
 | **[README.md](README.md)** *(bu dosya)* | İlk kurulum, çakışma kontrolleri, GitHub klon/push ve genel mimari |
-| **[ws_rehber.md](ws_rehber.md)** | Günlük kullanım el kitabı: klasör yapısı, simülasyon + köprü başlatma ve terminal test komutları |
+| **[ws_rehber.md](ws_rehber.md)** | Günlük kullanım el kitabı: klasör yapısı, tekli simülasyon + köprü başlatma ve terminal test komutları |
+| **[MULTI_SIM_REHBER.md](MULTI_SIM_REHBER.md)** | 6 uçaklı çoklu simülasyon (`multi_sim.launch.py`) adım adım çalıştırma, QGC ve doğrulama rehberi |
 | **[INSTALLATION.md](INSTALLATION.md)** | Hiç ROS 2 / Agent kurulmamış sıfır Ubuntu 22.04 görev bilgisayarı kurulumu |
 | **[PX4_SIM_KURULUM.md](PX4_SIM_KURULUM.md)** | Gazebo Harmonic, `PX4-Autopilot` SITL ve QGroundControl kurulumu |
 
@@ -28,7 +29,7 @@ Teknofest Savaşan İHA yarışması için **ROS 2 Humble**, **PX4 Micro XRCE-DD
 | **[src/px4_msgs](src/px4_msgs)** | Arayüz | `PX4-Autopilot` (`main` / `v1.18+`, `67f5c57e9a`) ile birebir uyumlu uORB mesajları (`de6b70e`) |
 | **[src/sartek_msgs](src/sartek_msgs)** | Arayüz | Tüm görev, algı, güvenlik ve GCS düğümlerinin ortak mesaj/aksiyon sözleşmesi (9 `.msg` + 1 `.action`) |
 | **[src/sartek_px4_bridge](src/sartek_px4_bridge)** | Omurga | `px4_telemetry_bridge` (`/fmu/out/*` → `TelemetryStatus` + `SystemHealth`) ve `px4_control_bridge` (`MissionCommand` / `SafetyOverride` → `/fmu/in/*`) |
-| **[src/sartek_sim](src/sartek_sim)** | Simülasyon | Gazebo Harmonic (`yunuseli.sdf`), kameralı uçak (`advanced_plane_cam`), zemin/QR modelleri ve tek komutla `PX4_GZ_STANDALONE=1` launch |
+| **[src/sartek_sim](src/sartek_sim)** | Simülasyon | Gazebo Harmonic (`yunuseli.sdf`, `yarisma.sdf`), kameralı uçak (`advanced_plane_cam`), tekli (`sim.launch.py`) ve 6 uçaklı otonom rakip simülasyonu (`multi_sim.launch.py` + `virtual_uav_runner`) |
 
 ### Sabitlenen Geliştirici Standartları
 - **Görev Koordinat Sistemi:** Tüm görev düğümlerinde ve `sartek_msgs` içinde **Local ENU** (`X=Doğu`, `Y=Kuzey`, `Z=Yukarı +`) kullanılır; NED↔ENU çevrimi yalnızca `sartek_px4_bridge` içinde yapılır.
